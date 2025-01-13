@@ -21,12 +21,15 @@
 **2.To run a attached Dockerfile**
 
   docker build -t my-nodejs-app              #this will create a docker image named my-nodejs-app
+  
   docker run -p 8080:8080 my-nodejs-app      #this will run application in a container 8080 port
+  
   http://localhost:8080                       #you can view application using this link in your localhost browser
 
 **3.To run the terraform**
 
   terraform init 
+  
   terraform plan -var="region=yourregion-name"  # for ex: us-east-1
                  -var="instance_ami=your-ami-id"
                  -var="s3_bucket=my-terraform-state-bucket"
