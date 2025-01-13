@@ -1,0 +1,13 @@
+#Here is the Dockerfile to create docker image for Node.js application
+#Author :  Ananth
+DATE    :  13-01-2025 
+
+
+FROM node:16                     #base image  
+WORKDIR /app                     #set working directory
+COPY package*.json ./            #copy the files from packag.json folder
+RUN npm install                  #install dependencices
+COPY . .                         #copy the rest of application code into the container
+RUN npm run build                #build the application(this assumes i have a script in my package.json)
+EXPOSE 8080                      #app run in  this port
+CMD ["npm", "start"]             #run the application when the container starts
